@@ -7,6 +7,8 @@ from flask import render_template
 from services.service import Service
 from dependencies import configure
 
+import asyncio
+
 app = Flask(__name__)
 
 
@@ -24,6 +26,15 @@ def get_data_index(service: Service):
     return render_template(
         "index.html",
         data=service.get_data(),
+    )
+
+@inject
+@app.route('/pokemon')
+def get_data_pokemon(service: Service):
+    print(f"Service instance is {service}")  # We want to see the object that gets created
+    return render_template(
+        "index.html",
+        data=asyncio.run(service.push_data_api_pokemon()),
     )
 
 # Setup Flask Injector, this has to happen AFTER routes are added
