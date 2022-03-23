@@ -9,14 +9,14 @@ from dependencies import configure
 
 app = Flask(__name__)
 
-
+#This service is used for access to data
 @inject
 @app.route('/data',methods=["POST"])
 def get_data(service: Service):
     print(f"Service instance is {service}")  # We want to see the object that gets created
     return service.get_data()
 
-
+#This service is used for index
 @inject
 @app.route('/index')
 def get_data_index(service: Service):
