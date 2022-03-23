@@ -1,4 +1,5 @@
 from injector import inject
+import asyncio
 
 from db.database import DatabaseBase
 
@@ -9,7 +10,7 @@ class Service:
         self.db = db
 
     def get_data(self):
-        return self.db.get()
+        return asyncio.run(self.db.get()) 
 
     def get_git_data():
         pass
