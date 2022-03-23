@@ -11,5 +11,8 @@ class Service:
     def get_data(self):
         return self.db.get()
 
+    def get_data_service_to_render_html(self):
+        return "123"
+
     def get_git_data():
         pass

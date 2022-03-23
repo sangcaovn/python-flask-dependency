@@ -24,6 +24,15 @@ def get_data_index(service: Service):
     return render_template(
         "index.html",
         data=service.get_data(),
+        demo="Hello"
+    )
+
+@app.route('/demo-render-html')
+def demo_render_html(service: Service):
+    return render_template(
+        "demo_render_html.html",
+        data_render="HELLO DATA RENDER",
+        data_service=service.get_data_service_to_render_html()
     )
 
 # Setup Flask Injector, this has to happen AFTER routes are added
