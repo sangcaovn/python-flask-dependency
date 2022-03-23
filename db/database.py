@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
-
+import json
+import aiohttp
 
 class DatabaseBase(ABC):
     def __init__(self):
@@ -22,5 +23,10 @@ class PostgresDatabase(DatabaseBase):
         # TODO: implementation for a Postgres database connection
         print("Successfully connected to Postgres database!")
 
-    def get(self):
-        return "hello world!!!"  # Query the database here
+    async def get(self):
+        # return "hello world!!!"  # Query the database here
+        async with aiohttp.ClientSession() as session:
+            pokemon_url = 'https://pokeapi.co/api/v2/pokemon/151'
+            async with session.get(pokemon_url,ssl=False) as resp:
+                pokemon = await resp.json()
+                return pokemon
