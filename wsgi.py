@@ -28,3 +28,4 @@ def get_data_index(service: Service):
 
 # Setup Flask Injector, this has to happen AFTER routes are added
 FlaskInjector(app=app, modules=[configure])
+
