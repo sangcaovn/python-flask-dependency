@@ -38,7 +38,7 @@ class Service:
                 return weather_response
 
     async def read_file(self):
-        async with aiofiles.open('user_info.json', mode='r') as f:
+        async with aiofiles.open('./user-info/user_info.json', mode='r') as f:
             contents = await f.read()
             print (contents)
             return contents if contents else []
