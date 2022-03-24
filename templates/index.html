@@ -2,7 +2,6 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="mb-4">{{ Hello }}</h1>
     <table class="table table-striped" >
         <tr>
           <th>No.</th>
@@ -17,14 +16,14 @@
         </tr>
         {% for i in data %}
         <tr>
-          <td>{{loop.index}}</td>
-          <td>{{ i.main.temp}}</td> 
-          <td>{{ i.main.temp_min}}</td> 
-          <td>{{ i.main.temp_max}}</td>
-          <td>{{ i.main.pressure}}</td>
-          <td>{{ i.main.sea_level}}</td> 
-          <td>{{ i.main.grnd_level}}</td>
-          <td>{{ i.main.humidity}}</td> 
+          <td class="table-primary" >{{loop.index}}</td>
+          <td class="table-secondary" >{{ i.main.temp}}</td> 
+          <td class="table-success" >{{ i.main.temp_min}}</td> 
+          <td class="table-danger" >{{ i.main.temp_max}}</td>
+          <td class="table-warning" >{{ i.main.pressure}}</td>
+          <td class="table-info" >{{ i.main.sea_level}}</td> 
+          <td class="table-light" >{{ i.main.grnd_level}}</td>
+          <td class="table-dark" >{{ i.main.humidity}}</td> 
           <td>{{ i.main.temp_kf}}</td>
         </tr>
         {% endfor %}
