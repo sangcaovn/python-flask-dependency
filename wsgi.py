@@ -1,4 +1,5 @@
-from flask import Flask
+import json
+from flask import Flask, request
 from flask_injector import FlaskInjector
 from injector import inject
 
@@ -34,6 +35,30 @@ def get_data_index(service: Service):
         "index.html",
         data=service.get_current_weather(),
     )
+
+@inject
+@app.route('/')
+def submit():
+   return render_template('submit.html')
+
+@inject
+@app.route('/result',methods = ['POST', 'GET'])
+def result():
+    dic = dict()
+    if request.method == 'POST':
+      result = request.form
+      dic["Name"] = request.form.__getitem__('Name')
+      dic["Physics"] = request.form.__getitem__('Physics')
+      dic["chemistry"] = request.form.__getitem__('chemistry')
+      dic["Mathematics"] = request.form.__getitem__('Mathematics')
+
+    
+      Service.write_data(dic)
+      return render_template("result_of_submit.html",result = result)
+    """if request.method == 'GET':
+        result = request.form
+        return Service.write_data(result)"""
+
 
 # Setup Flask Injector, this has to happen AFTER routes are added
 FlaskInjector(app=app, modules=[configure])
