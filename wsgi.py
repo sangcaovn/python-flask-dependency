@@ -97,7 +97,8 @@ def submit_form_handle(service: Service):
     email = data["email"]
     phone = data["phone"]
     address = data["address"]
-    print(name, email, phone, address)
+    # print(name, email, phone, address)
+    asyncio.run(service.save_to_json(data))
     return render_template(
         "index.html",
         data=service.get_data(),
