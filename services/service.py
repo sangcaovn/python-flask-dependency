@@ -11,5 +11,8 @@ class Service:
     def get_data(self):
         return self.db.get()
 
+    def get_current_weather(self):
+        pass
+
     def get_git_data():
         pass
