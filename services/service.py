@@ -1,3 +1,4 @@
+from select import select
 from injector import inject
 import asyncio
 
@@ -11,6 +12,12 @@ class Service:
 
     def get_data(self):
         return asyncio.run(self.db.get()) 
+    
+    def get_weather_data(self):
+        return asyncio.run(self.db.get_weather_data())
+
+    def get_general_weather_data(self):
+        return asyncio.run(self.db.get_general_weather_data())
 
     def get_git_data():
         pass
