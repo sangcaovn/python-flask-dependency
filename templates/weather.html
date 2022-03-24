@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <!-- <h1 class="mb-4">{{ data }}</h1> -->
+    <!-- {% for weather in data %}
+
+    <pre><code>{{weather["main"]}}</code></pre>
+    <pre><code>{{weather["main"]["temp"]}}</code></pre>
+
+    {% endfor %} -->
+    <table class="table table-striped">
+        <tr>
+            <th>no.</th>
+            <th>temp</th>
+            <th>temp_min</th>
+            <th>temp_max</th>
+            <th>pressure</th>
+            <th>sea_level</th>
+            <th>grnd_level</th>
+            <th>humidity</th>
+            <th>temp_kf</th>
+        </tr>
+        {% for weather in data %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{weather["main"]["temp"]}}</td>
+            <td>{{weather["main"]["temp_min"]}}</td>
+            <td>{{weather["main"]["temp_max"]}}</td>
+            <td>{{weather["main"]["pressure"]}}</td>
+            <td>{{weather["main"]["sea_level"]}}</td>
+            <td>{{weather["main"]["grnd_level"]}}</td>
+            <td>{{weather["main"]["humidity"]}}</td>
+            <td>{{weather["main"]["temp_kf"]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

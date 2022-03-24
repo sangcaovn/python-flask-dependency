@@ -25,3 +25,14 @@ class Service:
                 pokemon = await resp.json()
                 pokemon_json = json.dumps(pokemon, indent=4)
                 return pokemon_json
+
+    async def get_current_weather(self):
+        token = "95289c9af590f050a40422493b1e9565"
+        async with aiohttp.ClientSession() as session:
+            weather_url = 'https://samples.openweathermap.org/data/2.5/forecast?id=524901&appid=b1b15e88fa797225412429c1c50c122a1'
+            async with session.get(weather_url) as resp:
+                weather = await resp.json()
+                weather = weather["list"]
+                    # weather = weather["weather"]
+                weather_json = json.dumps(weather, indent=4)
+                return weather
