@@ -3,13 +3,17 @@ from injector import inject
 
 from db.database import DatabaseBase
 import requests
-import aiohttp, aiofiles
+import aiohttp
+import aiofiles
 import os.path
+import json
+
 
 class Service:
     @inject
     def __init__(self, db: DatabaseBase):
-        print(f"DatabaseBase instance is {db}")  # We want to see the object that gets created
+        # We want to see the object that gets created
+        print(f"DatabaseBase instance is {db}")
         self.db = db
 
     def get_data(self):
@@ -22,7 +26,8 @@ class Service:
         pass
 
     def get_weather_api(self):
-        response = requests.get("https://samples.openweathermap.org/data/2.5/forecast?id=524901&appid=b1b15e88fa797225412429c1c50c122a1").json()
+        response = requests.get(
+            "https://samples.openweathermap.org/data/2.5/forecast?id=524901&appid=b1b15e88fa797225412429c1c50c122a1").json()
         return response
 
     async def call_api_use_io_service(self):
@@ -32,14 +37,13 @@ class Service:
                 weather_response = await resp.json()
                 return weather_response
 
-    async def read_files(self):
+    async def read_file(self):
         async with aiofiles.open('user_info.json', mode='r') as f:
             contents = await f.read()
-            return contents
+            print (contents)
+            return contents if contents else []
 
-    async def save_to_json(self, data):
-        # print("Hello save_to_json")
-        check = os.path.exists('./user_info.json')
-        if check == False:
-            async with aiofiles.open('user_info.json', mode='w') as f:
-                await f.write("Hello world")
+    async def write_json_file(self, json_data):
+        async with aiofiles.open('user-info/user_info.json', mode='w') as f:
+            await f.write(json_data)
+

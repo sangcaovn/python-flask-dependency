@@ -10,6 +10,8 @@ import requests
 
 import aiohttp
 import asyncio
+import os
+import json
 app = Flask(__name__)
 
 
@@ -92,13 +94,18 @@ def demo_form(service: Service):
 
 @app.route('/submit-form', methods=["POST"])
 def submit_form_handle(service: Service):
-    data = request.form
-    name = data["name"]
-    email = data["email"]
-    phone = data["phone"]
-    address = data["address"]
-    # print(name, email, phone, address)
-    asyncio.run(service.save_to_json(data))
+    data = request.form.to_dict(flat=False)
+
+    print ("data form submit >>>",data)
+
+    lst_data=[]
+    check = os.path.exists('./user-info/user_info.json')
+    if(check):
+        lst_data=asyncio.run(service.read_file())
+
+    lst_data.append(data)
+    asyncio.run(service.write_json_file(json.dumps(lst_data)))
+    
     return render_template(
         "index.html",
         data=service.get_data(),
