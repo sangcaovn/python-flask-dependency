@@ -1,7 +1,9 @@
 import json
+import os
 from injector import inject
 import aiohttp
 from db.database import DatabaseBase
+import aiofiles
 
 ACCESS_KEY='3c8c935347ffdcc8f4ffed8c8a887436'
 class Service:
@@ -21,3 +23,20 @@ class Service:
                 return weather
     def get_git_data():
         pass
+    async def sign_up(self, User):
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        async with aiofiles.open(f'{dir_path}/data/user.json',mode = 'r') as file:
+            user = []
+            content = await file.read()
+            if content != "":
+                user = json.loads(content)
+            user.append(User)
+            async with aiofiles.open(f'{dir_path}/data/user.json', mode='w') as f:
+                await f.write(json.dumps(user, indent=4))
+            return user
+    async def get_user(self):
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        async with aiofiles.open(f'{dir_path}/data/user.json',mode = 'r') as file:
+            content = await file.read()
+            return content
+        

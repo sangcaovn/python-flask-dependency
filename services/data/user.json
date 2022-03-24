@@ -1,0 +1,34 @@
+[
+    {
+        "firstname": "Hoai",
+        "fullname": "Thu",
+        "username": "HoaiThu",
+        "address": "Thanh pho Thu Duc",
+        "gender": "Male",
+        "email": "HoaiThu@gmail.com"
+    },
+    {
+        "firstname": "Dang",
+        "fullname": "Thu",
+        "username": "DangThu",
+        "address": "Thanh pho Ho Chi Minh",
+        "gender": "Other",
+        "email": "DangThu@gmail.com"
+    },
+    {
+        "firstname": "Thu",
+        "fullname": "giau ten",
+        "username": "ThuGiauTen",
+        "address": "Viet Nam",
+        "gender": "Female",
+        "email": "thugiauten@gmail.com"
+    },
+    {
+        "firstname": "Thu 1",
+        "fullname": "Thu 2",
+        "username": "Thu3",
+        "address": "Thu 4",
+        "gender": "Female",
+        "email": "Thu5@gmail.com"
+    }
+]

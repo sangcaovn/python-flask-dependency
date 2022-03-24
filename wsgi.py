@@ -1,5 +1,6 @@
 import asyncio
-from flask import Flask
+
+from flask import Flask, request
 from flask_injector import FlaskInjector
 from injector import inject
 
@@ -33,7 +34,17 @@ def get_data_url (service: Service):
         "index.html",
         data=asyncio.run(service.get_data_api()),
     )
+@inject
+@app.route('/signup', methods = ['POST', 'GET'])
+def submit_signup_form (service: Service):
+    if (request.method == 'POST'):
+        result = request.form
+        result = asyncio.run(service.sign_up(result))
 
+        return render_template('result.html', result = result)
+    if (request.method == 'GET'):
+        return render_template("signUp.html")
+    
 
 # Setup Flask Injector, this has to happen AFTER routes are added
 FlaskInjector(app=app, modules=[configure])
