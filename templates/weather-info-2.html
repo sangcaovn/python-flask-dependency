@@ -32,18 +32,32 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">temp</th>
+                            <th scope="col">temp_min</th>
+                            <th scope="col">temp_max</th>
+                            <th scope="col">pressure</th>
+                            <th scope="col">sea_level</th>
+                            <th scope="col">grnd_level</th>
+                            <th scope="col">humidity</th>
+                            <th scope="col">temp_kf</th>
+
                         </tr>
                     </thead>
                     <tbody>
+                        {% for each_info in main %}
                         <tr>
-                            <th scope="row">{{}}</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            <th scope="row">{{loop.index}}</th>
+                            <td>{{each_info.temp}}</td>
+                            <td>{{each_info.temp_min}}</td>
+                            <td>{{each_info.temp_max}}</td>
+                            <td>{{each_info.pressure}}</td>
+                            <td>{{each_info.sea_level}}</td>
+                            <td>{{each_info.grnd_level}}</td>
+                            <td>{{each_info.humidity}}</td>
+                            <td>{{each_info.temp_kf}}</td>
                         </tr>
+                        {% endfor %}
+
                     </tbody>
                 </table>
 
