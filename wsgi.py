@@ -82,8 +82,21 @@ def weather_use_aiohttp(service: Service):
         city=response["city"]["name"],
         main=main
     )
-    
-    
+
+@app.route('/demo-form')
+def demo_form(service: Service):
+    return render_template(
+        "form_json.html"
+    )
+
+
+@app.route('/submit-form', methods=["POST"])
+def submit_form_handle(service: Service):
+    return render_template(
+        "index.html",
+        data=service.get_data(),
+        demo="Hello"
+    )
 
 
 # Setup Flask Injector, this has to happen AFTER routes are added
