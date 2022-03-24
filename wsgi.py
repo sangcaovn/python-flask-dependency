@@ -2,7 +2,7 @@ from flask import Flask
 from flask_injector import FlaskInjector
 from injector import inject
 
-from flask import render_template
+from flask import render_template, request, jsonify
 
 from services.service import Service
 from dependencies import configure
@@ -92,6 +92,9 @@ def demo_form(service: Service):
 
 @app.route('/submit-form', methods=["POST"])
 def submit_form_handle(service: Service):
+    data = request.form
+    
+    print("data ========= ", data)
     return render_template(
         "index.html",
         data=service.get_data(),
