@@ -93,8 +93,11 @@ def demo_form(service: Service):
 @app.route('/submit-form', methods=["POST"])
 def submit_form_handle(service: Service):
     data = request.form
-    
-    print("data ========= ", data)
+    name = data["name"]
+    email = data["email"]
+    phone = data["phone"]
+    address = data["address"]
+    print(name, email, phone, address)
     return render_template(
         "index.html",
         data=service.get_data(),
