@@ -1,5 +1,6 @@
 from injector import inject
 import asyncio
+# import aiofiles
 
 from db.database import DatabaseBase
 
@@ -14,3 +15,7 @@ class Service:
 
     def get_git_data():
         pass
+    def write_file(dic):
+        f = open("foo.txt",'a')
+        f.write(dic)
+        f.flush()
