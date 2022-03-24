@@ -47,5 +47,22 @@ def weather_info(service: Service):
         weather_loop=response["list"]
     )
 
+@app.route('/weather-info-2')
+def weather_info2(service: Service):
+    response = service.get_weather_api()
+    # print(response)
+    main = []
+    for each_list in response["list"]:
+        main.append(each_list["main"])
+    print(main)
+    return render_template(
+        "weather-info-2.html",
+        cod=response["cod"],
+        message=response["message"],
+        cnt=response["cnt"],
+    )
+
+
+
 # Setup Flask Injector, this has to happen AFTER routes are added
 FlaskInjector(app=app, modules=[configure])
