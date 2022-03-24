@@ -7,6 +7,9 @@ from flask import render_template
 from services.service import Service
 from dependencies import configure
 import requests
+
+import aiohttp
+import asyncio
 app = Flask(__name__)
 
 
@@ -54,7 +57,7 @@ def weather_info2(service: Service):
     main = []
     for each_list in response["list"]:
         main.append(each_list["main"])
-    print(main)
+    # print(main)
     return render_template(
         "weather-info-2.html",
         cod=response["cod"],
@@ -64,6 +67,23 @@ def weather_info2(service: Service):
         main=main
     )
 
+@app.route('/weather_use_aio')
+def weather_use_aiohttp(service: Service):
+    response = asyncio.run(service.call_api_use_io_service())
+    main = []
+    for each_list in response["list"]:
+        main.append(each_list["main"])
+    # print(main)
+    return render_template(
+        "weather-info-2.html",
+        cod=response["cod"],
+        message=response["message"],
+        cnt=response["cnt"],
+        city=response["city"]["name"],
+        main=main
+    )
+    
+    
 
 
 # Setup Flask Injector, this has to happen AFTER routes are added
