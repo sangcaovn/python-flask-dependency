@@ -17,13 +17,22 @@ def get_data(service: Service):
     return service.get_data()
 
 
-@inject
+"""@inject
 @app.route('/index')
 def get_data_index(service: Service):
     print(f"Service instance is {service}")  # We want to see the object that gets created
     return render_template(
         "index.html",
         data=service.get_data(),
+    )"""
+
+@inject
+@app.route('/weather')
+def get_data_index(service: Service):
+    print(f"Service instance is {service}")  # We want to see the object that gets created
+    return render_template(
+        "index.html",
+        data=service.get_current_weather(),
     )
 
 # Setup Flask Injector, this has to happen AFTER routes are added

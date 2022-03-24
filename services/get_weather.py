@@ -1,5 +1,5 @@
+import re
+import requests
 
-
-
-def get_data():
+def request_api():
     pass
