@@ -10,7 +10,7 @@
 
     {% endfor %} -->
     <table class="table table-striped">
-        <tr>
+        <tr class="table-danger">
             <th>no.</th>
             <th>temp</th>
             <th>temp_min</th>
@@ -23,14 +23,14 @@
         </tr>
         {% for weather in data %}
         <tr>
-            <td>{{loop.index}}</td>
-            <td>{{weather["main"]["temp"]}}</td>
-            <td>{{weather["main"]["temp_min"]}}</td>
-            <td>{{weather["main"]["temp_max"]}}</td>
-            <td>{{weather["main"]["pressure"]}}</td>
-            <td>{{weather["main"]["sea_level"]}}</td>
-            <td>{{weather["main"]["grnd_level"]}}</td>
-            <td>{{weather["main"]["humidity"]}}</td>
+            <td class="table-primary">{{loop.index}}</td>
+            <td class="table-secondary">{{weather["main"]["temp"]}}</td>
+            <td class="table-success">{{weather["main"]["temp_min"]}}</td>
+            <td class="table-danger">{{weather["main"]["temp_max"]}}</td>
+            <td class="table-warning">{{weather["main"]["pressure"]}}</td>
+            <td class="table-info">{{weather["main"]["sea_level"]}}</td>
+            <td class="table-light">{{weather["main"]["grnd_level"]}}</td>
+            <td class="table-dark">{{weather["main"]["humidity"]}}</td>
             <td>{{weather["main"]["temp_kf"]}}</td>
         </tr>
         {% endfor %}
