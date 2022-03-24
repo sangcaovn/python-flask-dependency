@@ -1,3 +1,4 @@
+import asyncio
 from flask import Flask
 from flask_injector import FlaskInjector
 from injector import inject
@@ -25,6 +26,14 @@ def get_data_index(service: Service):
         "index.html",
         data=service.get_data(),
     )
+@inject
+@app.route('/weather')
+def get_data_url (service: Service):
+    return render_template(
+        "index.html",
+        data=asyncio.run(service.get_data_api()),
+    )
+
 
 # Setup Flask Injector, this has to happen AFTER routes are added
 FlaskInjector(app=app, modules=[configure])
