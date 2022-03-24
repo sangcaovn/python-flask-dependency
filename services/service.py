@@ -2,8 +2,6 @@ from injector import inject
 import requests
 from db.database import DatabaseBase
 
-from services.get_weather import request_api
-
 class Service:
     @inject
     def __init__(self, db: DatabaseBase):
@@ -19,6 +17,14 @@ class Service:
         if(data.status_code):
             return data.json().get("list")
         return []
+
+    def write_data(data):
+        f = open("foo1.txt",'a')
+        print(type(data))
+        print(data)
+        for key, value in data.items():
+            f.write(f'{key}: {value}\n')
+        f.flush()
 
     def get_git_data():
         pass
