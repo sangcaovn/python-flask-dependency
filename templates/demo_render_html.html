@@ -4,5 +4,16 @@
 <div class="container">
     <h1 class="mb-4">{{ data_render }}</h1>
     <p>{{data_service}}</p>
+    <p>{{response["people"]}}</p>
+
+    <ul>
+        {% for i in response["people"] %}
+        <li>{{ i.name }}</li>
+        {% endfor %}
+    </ul>
+    <hr />
+    {% for i in response["people"] %}
+    <p>{{ i.name }}</p>
+    {% endfor %}
 </div>
 {% endblock %}

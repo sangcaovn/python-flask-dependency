@@ -6,7 +6,7 @@ from flask import render_template
 
 from services.service import Service
 from dependencies import configure
-
+import requests
 app = Flask(__name__)
 
 
@@ -29,10 +29,22 @@ def get_data_index(service: Service):
 
 @app.route('/demo-render-html')
 def demo_render_html(service: Service):
+    response = requests.get("http://api.open-notify.org/astros.json").json()
+    print(response)
     return render_template(
         "demo_render_html.html",
         data_render="HELLO DATA RENDER",
-        data_service=service.get_data_service_to_render_html()
+        data_service=service.get_data_service_to_render_html(),
+        response=response
+    )
+
+@app.route('/weather-info')
+def weather_info(service: Service):
+    response = requests.get("https://samples.openweathermap.org/data/2.5/forecast?id=524901&appid=b1b15e88fa797225412429c1c50c122a1").json()
+    print(response)
+    return render_template(
+        "weather-info.html",
+        weather_loop=response["list"]
     )
 
 # Setup Flask Injector, this has to happen AFTER routes are added
