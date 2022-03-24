@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="card text-center">
+    <div class="card-header">
+        <h3 class="card-tittle">WEATHER FORECAST</h3> 
+    </div>
+</div>
 <div class="container">
     <!-- <h1 class="mb-4">{{ data }}</h1> -->
     <!-- {% for weather in data %}
@@ -10,7 +15,7 @@
 
     {% endfor %} -->
     <table class="table table-striped">
-        <tr class="table-danger">
+        <tr class="bg-primary">
             <th>no.</th>
             <th>temp</th>
             <th>temp_min</th>
@@ -30,8 +35,8 @@
             <td class="table-warning">{{weather["main"]["pressure"]}}</td>
             <td class="table-info">{{weather["main"]["sea_level"]}}</td>
             <td class="table-light">{{weather["main"]["grnd_level"]}}</td>
-            <td class="table-dark">{{weather["main"]["humidity"]}}</td>
-            <td>{{weather["main"]["temp_kf"]}}</td>
+            <td class="bg-success">{{weather["main"]["humidity"]}}</td>
+            <td class="bg-info">{{weather["main"]["temp_kf"]}}</td>
         </tr>
         {% endfor %}
     </table>

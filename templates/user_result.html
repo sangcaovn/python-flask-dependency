@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <!-- <h1 class="mb-4">{{ data }}</h1> -->
+    <br />
+    <h1>User Info</h1>
+    <br />
+    <div>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Key</th>
+                <th scope="col">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for key,value in data.items() %}
+              <tr>
+                <td>{{key}}</td>
+                <td>{{value}}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+    </div>
+</div>
+{% endblock %}

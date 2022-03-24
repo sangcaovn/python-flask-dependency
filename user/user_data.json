@@ -1,0 +1,38 @@
+[
+    {
+        "firstname": "asd",
+        "lastname": "dsa",
+        "gender": "1",
+        "username": "asda",
+        "email": "dsaf",
+        "address": "dsfdsf",
+        "dob": "fdsf"
+    },
+    {
+        "firstname": "afdsaf",
+        "lastname": "asfasf",
+        "gender": "1",
+        "username": "asfas",
+        "email": "asfas",
+        "address": "asfas",
+        "dob": "asfasf"
+    },
+    {
+        "firstname": "khoa",
+        "lastname": "13412",
+        "gender": "1",
+        "username": "241",
+        "email": "414",
+        "address": "4124",
+        "dob": "41241"
+    },
+    {
+        "firstname": "khoa",
+        "lastname": "13412",
+        "gender": "1",
+        "username": "241",
+        "email": "414",
+        "address": "4124",
+        "dob": "41241"
+    }
+]

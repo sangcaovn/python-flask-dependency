@@ -2,9 +2,10 @@ from injector import inject
 
 from db.database import DatabaseBase
 
-import asyncio
+import aiofiles
 import aiohttp
 import json
+import os
 
 class Service:
     @inject
@@ -36,3 +37,16 @@ class Service:
                     # weather = weather["weather"]
                 weather_json = json.dumps(weather, indent=4)
                 return weather
+
+    async def write_file(self,User):
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        dir_path = os.path.join(dir_path, '..')
+        async with aiofiles.open(f'{dir_path}/user/user_data.json','r') as r:
+            user = []
+            content = await r.read()
+            if content != "":
+                user = json.loads(content)
+            user.append(User)
+            async with aiofiles.open(f'{dir_path}/user/user_data.json', mode='w') as f:
+                await f.write(json.dumps(user, indent=4))
+            return user
