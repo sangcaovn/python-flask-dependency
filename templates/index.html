@@ -7,9 +7,11 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">City</th>
+        <th scope="col">Cloud</th>
         <th scope="col">Temp</th>
         <th scope="col">Weather</th>
+        <th scope="col">Main Weather</th>
+        <th scope="col">Wind</th>
       </tr>
     </thead>
     <tbody>
@@ -19,6 +21,8 @@
         <td>{{item["clouds"]["all"]}}</td>
         <td>{{item["main"]["temp"]}}</td>
         <td>{{item["weather"][0]["description"]}}</td>
+        <td>{{item["weather"][0]["main"]}}</td>
+        <td>{{item["wind"]["speed"]}}</td>
       </tr>
     {%  endfor %}
     </tbody>
