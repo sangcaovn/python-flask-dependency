@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 import json
 import aiohttp
+from injector import V
 
 class DatabaseBase(ABC):
     def __init__(self):
@@ -26,7 +27,8 @@ class PostgresDatabase(DatabaseBase):
     async def get(self):
         # return "hello world!!!"  # Query the database here
         async with aiohttp.ClientSession() as session:
-            pokemon_url = 'https://pokeapi.co/api/v2/pokemon/151'
-            async with session.get(pokemon_url,ssl=False) as resp:
-                pokemon = await resp.json()
-                return pokemon
+            weather_url = 'https://samples.openweathermap.org/data/2.5/forecast?id=524901&appid=b1b15e88fa797225412429c1c50c122a1'
+            async with session.get(weather_url,ssl=False) as resp:
+                weather = await resp.json()
+            
+        return weather["list"]
