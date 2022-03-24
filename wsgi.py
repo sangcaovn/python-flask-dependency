@@ -60,6 +60,8 @@ def weather_info2(service: Service):
         cod=response["cod"],
         message=response["message"],
         cnt=response["cnt"],
+        city=response["city"]["name"],
+        main=main
     )
 
 

@@ -21,6 +21,7 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th scope="col">#</th>
                             <th scope="col">dt</th>
                             <th scope="col">temp</th>
                             <th scope="col">description</th>
@@ -32,6 +33,7 @@
                     <tbody>
                         {% for i in weather_loop %}
                         <tr>
+                            <td>{{loop.index}}</td>
                             <th scope="row">{{i.dt}}</th>
                             <td>{{i.main.temp}}</td>
                             <td>{{i.weather[0].description}}</td>
