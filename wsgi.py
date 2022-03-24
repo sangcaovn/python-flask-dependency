@@ -11,16 +11,14 @@ app = Flask(__name__)
 
 
 @inject
-@app.route('/data',methods=["POST"])
+@app.route('/data',methods=["GET"])
 def get_data(service: Service):
-    print(f"Service instance is {service}")  # We want to see the object that gets created
     return service.get_data()
 
 
 @inject
 @app.route('/index')
 def get_data_index(service: Service):
-    print(f"Service instance is {service}")  # We want to see the object that gets created
     return render_template(
         "index.html",
         data=service.get_data(),
