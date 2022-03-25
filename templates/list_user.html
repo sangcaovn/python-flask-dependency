@@ -17,6 +17,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                {% if list_render | length > 0 %}
                 <table class="table">
                     <thead>
                         <tr>
@@ -40,7 +41,9 @@
                         
                     </tbody>
                 </table>
-                
+                {% else %}
+                <p>KHÔNG TÌM THẤY THÔNG TIN NGƯỜI DÙNG</p>
+                {% endif %}
             </div>
             <div class="col-12">
                 <a class="btn btn-outline-primary" href='/demo-form'>Thêm người dùng</a>
