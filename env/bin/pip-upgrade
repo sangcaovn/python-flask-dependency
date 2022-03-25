@@ -1,4 +1,4 @@
-#!/Users/sgca/python-flask-dependence/env/bin/python3.9
+#!/Users/sgca/python-flask-dependency/env/bin/python3.9
 # -*- coding: utf-8 -*-
 import re
 import sys
