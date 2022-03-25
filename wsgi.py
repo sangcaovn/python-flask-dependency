@@ -1,3 +1,4 @@
+from csv import list_dialects
 from flask import Flask
 from flask_injector import FlaskInjector
 from injector import inject
@@ -107,11 +108,13 @@ def submit_form_handle(service: Service):
     print("check data = ", data)
     lst_data.append(data)
     asyncio.run(service.write_json_file(json.dumps(lst_data)))
-    
+    list_render = asyncio.run(service.read_file())
+    list_render = json.loads(list_render)
+    print("list_render = ", list_render)
+    print(type(list_render))
     return render_template(
-        "index.html",
-        data=service.get_data(),
-        demo="Hello"
+        "list_user.html",
+        list_render=list_render
     )
 
 

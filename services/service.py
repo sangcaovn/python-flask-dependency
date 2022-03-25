@@ -47,3 +47,4 @@ class Service:
         async with aiofiles.open('user-info/user_info.json', mode='w') as f:
             await f.write(json_data)
 
+
