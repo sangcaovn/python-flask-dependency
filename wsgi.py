@@ -103,10 +103,14 @@ def submit_form_handle(service: Service):
     check = os.path.exists('./user-info/user_info.json')
     if(check):
         lst_data=asyncio.run(service.read_file())
-        if lst_data:
+        try:
             lst_data = json.loads(lst_data)
-        else:
+        except:
             lst_data = []
+        # if lst_data:
+        #     lst_data = json.loads(lst_data)
+        # else:
+        #     lst_data = []
     print("check lst_data = ", lst_data)
     print("check type(lst_data) = ", type(lst_data))
     # print("check data = ", data)

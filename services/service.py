@@ -40,7 +40,7 @@ class Service:
     async def read_file(self):
         async with aiofiles.open('./user-info/user_info.json', mode='r') as f:
             contents = await f.read()
-            print (contents)
+            # print (contents)
             return contents if contents else []
 
     async def write_json_file(self, json_data):
