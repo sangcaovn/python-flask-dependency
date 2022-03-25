@@ -8,7 +8,7 @@ from flask import render_template
 
 from services.service import Service
 from dependencies import configure
-
+import os
 app = Flask(__name__)
 
 
@@ -16,14 +16,27 @@ app = Flask(__name__)
 @app.route('/data',methods=["POST","GET"])
 # def get_data(service: Service):
 def get_data(service: Service):
-    dic = dict()
+
     # print(f"Service instance is {service}")  # We want to see the object that gets created
     # return service.get_data()
-    dic['name'] = request.form.__getitem__('name')
-    dic['age'] = request.form.__getitem__('age')
-    Service.write_file(json.dumps(dic))
+    if request.method == "POST" :
+        data = {}
+        data["name"] = request.form.__getitem__("name")
+        data["age"] = request.form.__getitem__("age")
+        if(os.path.exists("user/user.json")):
+            lst = service.read_file("user/user.json")
+        lst["list"].append(data)
+        service.write_file(lst)
+    else:
+        pass
     return render_template("data.html")
     
+@app.route("/route-two")
+def route_two(service: Service):
+    file = open('user/user.json','r')
+    data = json.loads(file.read())
+    print(f"Service instance is {service}")
+    return render_template("route_two.html", data=data["list"])
 
 @inject
 @app.route('/index')
