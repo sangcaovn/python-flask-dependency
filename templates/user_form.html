@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">User Information</h1>
+    <form method="post">
+        <input type="hidden" id="uuid" name="uuid"><br>
+
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname"><br>
+
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname"><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address"><br>
+
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone"><br><br>
+
+        <button>Submit</button>
+      </form>
+      <br>
+      <a href="http://127.0.0.1:5000/users">
+        <button class="button button-primary">HOME PAGE</button>
+     </a>
+</div>
+{% endblock %}

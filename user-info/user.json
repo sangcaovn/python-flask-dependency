@@ -1,0 +1,60 @@
+{
+    "list": [
+        {
+            "uuid": "faf08bb2-9832-4be9-9c96-03f5ac487119",
+            "fname": "cuong",
+            "lname": "trinh",
+            "email": "cuong.trinh@gmail.com",
+            "address": "234gj",
+            "phone": "23467"
+        },
+        {
+            "uuid": "aa4465bb-9e56-4e79-9f16-e8f754fef1e7",
+            "fname": "nguyen1",
+            "lname": "linh1",
+            "email": "ln1@gmial.com",
+            "address": "34gh1",
+            "phone": "45671"
+        },
+        {
+            "uuid": "df2b329c-5b56-44f2-b75b-dca771f4c32f",
+            "fname": "linh",
+            "lname": "tran",
+            "email": "tran.ling@gmail.com",
+            "address": "er5",
+            "phone": "3456789"
+        },
+        {
+            "uuid": "df8be2c4-55cb-4a83-adb0-a3c4552f124c",
+            "fname": "sang",
+            "lname": "le",
+            "email": "le-sang@gmail.com",
+            "address": "rt5789",
+            "phone": "09876"
+        },
+        {
+            "uuid": "c5fe7fa1-59f2-46c1-a2fb-f449a1fa9c44",
+            "fname": "minh",
+            "lname": "tran",
+            "email": "minh.tran@gmail.com",
+            "address": "er43221",
+            "phone": "2341"
+        },
+        {
+            "uuid": "954d1935-5b91-440b-9c07-f789487846b2",
+            "fname": "ly",
+            "lname": "ho",
+            "email": "ho.ly@gmail.com",
+            "address": "34bn",
+            "phone": "123890"
+        },
+        {
+            "uuid": "30d9093c-d92d-453f-b1d9-e54d922ee894",
+            "fname": "nam",
+            "lname": "vo",
+            "email": "nam.vo@gtf.com",
+            "address": "fgh45",
+            "phone": "890345"
+        }
+    ]
+}
