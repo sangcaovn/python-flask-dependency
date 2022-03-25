@@ -23,4 +23,4 @@ class PostgresDatabase(DatabaseBase):
         print("Successfully connected to Postgres database!")
 
     def get(self):
-        return "hello world!!!"  # Query the database here
+        return "hello world!!!PHATHtml"  # Query the database here

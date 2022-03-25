@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+{% block content %}
+
+<head>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>User List</h2> 
+    <form action="/form" method="POST">
+        <input type="submit" value="User" name="Go to User" />
+    </form>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Delete User</th>
+        </tr>
+        {%for i,j in data.items()%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{i[2:-1]}}</td>
+            <td>{{j[2:-3]}}</td>
+            <td>
+            <form action="/user_list" method="POST">
+                <input type="submit" value="Delete {{i[2:-1]}}" name="Delete User"/>
+            </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
+
+{% endblock %}
