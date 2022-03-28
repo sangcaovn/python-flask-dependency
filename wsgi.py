@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 
 @inject
-@app.route('/index')
+@app.route('/')
 def get_data_index(service: Service):
     print(f"Service instance is {service}")  # We want to see the object that gets created
     return render_template(
