@@ -15,3 +15,4 @@ flask db init
 flask db migrate
 flask db upgrade
 --------------------  done --------------------
+link: https://www.digitalocean.com/community/tutorials/build-a-crud-web-app-with-python-and-flask-part-one
