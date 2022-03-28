@@ -1,2 +1,1 @@
-
-from app.models import product,user,role,department,client
+from app.models import product,user,role,department
