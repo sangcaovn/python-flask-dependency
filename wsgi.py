@@ -26,5 +26,14 @@ def get_data_index(service: Service):
         data=service.get_data(),
     )
 
+@inject
+@app.route('/weather-forecast')
+def get_data_weather(service: Service):
+    print(f"Service instance is {service}")
+    return render_template(
+        "weather.html", 
+        data=service.get_weather_data(),
+    )    
+
 # Setup Flask Injector, this has to happen AFTER routes are added
 FlaskInjector(app=app, modules=[configure])
