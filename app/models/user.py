@@ -24,11 +24,7 @@ class User(UserMixin, db.Model):
     department_id = db.Column(db.Integer, db.ForeignKey('departments.id'))
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
     is_admin = db.Column(db.Boolean, default=False)
-<<<<<<< HEAD
     gender =  db.Column(db.Boolean, default = True)
-=======
-    
->>>>>>> fd65437623493d051c8defb037986aa473161df0
 
     @property
     def password(self):
