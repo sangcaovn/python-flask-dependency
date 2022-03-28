@@ -1,3 +1,4 @@
+from pickle import TRUE
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -18,10 +19,12 @@ class User(UserMixin, db.Model):
     first_name = db.Column(db.String(60), index=True)
     last_name = db.Column(db.String(60), index=True)
     phone = db.Column(db.String(20))
+    gender=db.Column(db.Boolean,default=True)
     password_hash = db.Column(db.String(128))
     department_id = db.Column(db.Integer, db.ForeignKey('departments.id'))
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
     is_admin = db.Column(db.Boolean, default=False)
+    
 
     @property
     def password(self):

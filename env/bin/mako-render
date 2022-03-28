@@ -1,4 +1,4 @@
-#!/Users/sgca/python-flask-dependency/env/bin/python3.9
+#!/Users/cgpa/python-flask-dependency/env/bin/python3
 # EASY-INSTALL-ENTRY-SCRIPT: 'Mako==1.0.6','console_scripts','mako-render'
 import re
 import sys

@@ -3,7 +3,7 @@ brew install postgresql
 brew install pgadmin4
 brew services start postgresql
 psql -h /tmp/ postgres
-CREATE USER admin SUPERUSER WITH PASSWORD 'admin';
+CREATE USER admin SUPERUSER PASSWORD 'admin';
 CREATE DATABASE test_db WITH OWNER = admin;
 # 2 set up project
 pull code from git
